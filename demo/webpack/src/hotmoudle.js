@@ -1,0 +1,1 @@
+export default '热更新模块!1'
