@@ -9,7 +9,7 @@
 // await 在这个async函数内部使用, 函数没有返回,那么下面的程序是不会去执行
 ```
 
-2. 单线程 多线程 同步任务 异步任务 setTimeout 加载大数据量
+2. 单线程 多线程 同步任务 异步任务 setTimeout 加载大数据量 
 ```javascript
 // javascript是单线程语言,多线程对dom操作不友好
 // 在HTML5中，引入了Web Worker这个概念。在另外一个线程中执行计算密集的代码
@@ -195,5 +195,167 @@ watch: {
 47. vue3 函数式编程
 
 48. vue的源码 vuex的源码 vue-router的源码 promise的源码 vue插件的拓展（use） axios源码  
+```javascript
+
+```
 
 49. 算法 数组、字符串的操作
+```javascript
+
+```
+
+50. 组件通信有哪些，有没有了解过 provite inject 
+
+51. gitLab的代码测试
+
+51. 异步任务和同步任务的执行顺序
+
+52. vuex的作用及源码
+
+53. 权限的实现
+
+54. 除了cookie\sessionstory\localstory 缓存方式还有哪些
+
+55. vue的生命周期
+
+56. h5、vue、小程序开发的区别
+
+57. css的布局方式，文字不居中的解决方案
+
+58. 组件的开发规范
+
+59. 微前端、兼容问题、JS基础 vuex(使用) vue-router(使用) v-show和v-if的区别  双向数据绑定v-model的实现原理 v-model表单 作用域插槽 异步组件 动态路由 路由懒加载 js原型 原型链 js闭包 JS（ES6）原理 模块化 设计模式 Docker
+
+60. 作用域
+
+61. 网址的正则匹配
+```javascript
+/([^?&=]+)=([^?&=]*)/g
+// ()表示子组
+// [^]表示字符类取反, [^?&=]匹配不是?、&、=的单个字符
+// + 等价于 {1,} 重复1次或多次
+// * 等价于 {0,} 重复0次或多次
+// {n} 表示：重复n次
+```
+
+62. 数组的去重
+```javascript
+方法一：
+双层循环，外层循环元素，内层循环时比较值
+如果有相同的值则跳过，不相同则push进数组
+方法二：
+Set数据结构，它类似于数组，其成员的值都是唯一
+利用Array.from将Set结构转换成数组
+方法三：
+利用indexOf以及forEach
+arr.forEach(function(v, i ,arr){
+  var bool = arr.indexOf(v,i+1);
+  if(bool === -1){
+   result.push(v);
+  }
+})
+```
+
+63. 箭头函数的作用域 let a = {test: () => { console.log(this)}} let b = {test: function() {console.log(this)}}
+```javascript
+1. 作用域（变量的合法使用范围）：全局作用域、函数作用域、块级作用域（es6，if\else\for\{}）
+2. 自由变量：
++ 一个变量在当前作用域没有定义，但被使用了
++ 向上级作用域({})，一层一层依次寻找，直到找到为止
++ 如果到全局作用域都没找到，则报错xx is not define
+3. this:
++ function fn1(){console.log(this)} fn1()// window
++ fn1.call({x:100})//{x:100}
++ const fn2 = fn1.bind({x:200}) fn2()//{x:200}
+
+const zhangsan = {
+  name:'张三'，
+  sayHi() {
+    // this 即当前对象
+    console.log(this)
+  },
+  wait() {
+    setTimeout(function(){
+      // this 指window
+    console.log(this)
+    })
+  },
+  waitAgan() {
+    setTimeout(()=>{
+      // this 即当前对象
+    console.log(this)
+    })
+  }
+}
+
+4. bind call apply
+function fn1(a,b,c) {
+  console.log('this',this)
+  console.log(a,b,c)
+  return 'this is fn1'
+}
+const fn2 = fn1.bind({x:100},10,20,30)
+const res = fn2()
+console.log(res)
+
+5. 闭包隐藏数据，只提供API;闭包注册事件(let);
+function cache() {
+  let data = {}
+  return {
+    set: function (key,val) {
+      data[key] = val
+    },
+    get: function (key) {
+      return data[key]
+    }
+  }
+}
+```
+
+64. 值类型：
+
+65. 引用类型: Date symple map filter 函数
+
+66. 模块化：嵌套导入
+
+67. 事件循环
+
+68. vuex拆分写法
+```javascript
+import state from 'xxx'
+
+Vue.use(Vuex)
+export default new Vuex.Store({
+  store,getter,mutation,action,moduls
+})
+```
+
+69. 圣杯布局
+float pading margin-left:-100% left
+
+70. 正方形
+width: 10vmax; height: 10vheight;
+
+71. event loop
++ js 单线程（1.从前到后执行；2.报错则停止下面的代码；3.先把同步代码执行完，再执行异步）
++ 异步基于回调实现
++ event loop 是异步回调实现的原理
+```javascript
+console.log('a')
+setTimeout(()=>{
+  console.log('b')
+},5000)
+console.log('c')
+
+过程：
++ 同步代码，一行一行放在Call Stack执行
++ 遇到异步，会先“记录”下，等待时机（定时、网络请求等）
++ 时机到了，就移动到Callback Queue
++ Call Stack 为空 event loop 开始工作
++ 轮询Call Queue, 有则移动到call stack执行
++ 然后继续查找
+```
+
+72. 权限树的实现
+
+73. linux
