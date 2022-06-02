@@ -1,0 +1,14 @@
+{
+  "name": "guokang-cli-lib",
+  "version": "1.0.2",
+  "description": "guokang's cli-lib",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lib"
+  ],
+  "author": "loove",
+  "license": "ISC"
+}

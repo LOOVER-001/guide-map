@@ -1,0 +1,21 @@
+{
+  "name": "guokang-cli",
+  "version": "1.0.5",
+  "description": "guokang's cli",
+  "main": "index.js",
+  "bin": {
+    "guokang-test": "bin/index.js",
+    "init": ""
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "loove",
+  "license": "ISC",
+  "dependencies": {
+    "guokang-cli-lib": "^1.0.2"
+  }
+}
