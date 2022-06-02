@@ -1,0 +1,8 @@
+{
+    // 预设
+    "presets":["@babel/env"],
+    // 高级
+    "plugins":[
+        "@babel/plugin-proposal-class-properties"
+    ]
+}
